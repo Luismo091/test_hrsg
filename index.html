@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>PRUEBA GIT HRSG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #ffffff; /* Fondo oscuro */
-            color: black /* Texto en blanco */
-            font-family: Arial, sans-serif;
+            background-color: #00122e; /* Fondo oscuro */
+            color: #fff; /* Texto en blanco */
+            font-family: 'Readex Pro', Arial, sans-serif; /* Aplicar la fuente Google Fonts y alternativas */
             text-align: center;
         }
 
@@ -27,12 +30,27 @@
     </style>
 </head>
 <body>
-<h1>PRUEBA GIT HRSG 31/10/2023 - 4:49 pm</h1>
+<h1>PRUEBA GIT HRSG</h1>
 <div class="logo-container">
     <img src="img/322_logo-300_200x200.png"/>
 </div>
-
-
 <p>Git es un sistema de control de versiones distribuido que permite rastrear los cambios en tu código y colaborar con otros desarrolladores de manera eficiente.</p>
+
+<p>La hora actual es: <span id="hora"></span></p>
+
+<script>
+    function mostrarHora() {
+        const horaActual = new Date();
+        const hora = horaActual.getHours();
+        const minutos = horaActual.getMinutes();
+        const segundos = horaActual.getSeconds();
+
+        const horaFormateada = `${hora}:${minutos}:${segundos}`;
+        document.getElementById('hora').textContent = horaFormateada;
+    }
+
+    setInterval(mostrarHora, 1000); // Actualizar cada segundo
+    mostrarHora(); // Mostrar la hora inicial
+</script>
 </body>
 </html>
