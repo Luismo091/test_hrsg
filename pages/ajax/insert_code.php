@@ -1,8 +1,6 @@
 <?php
-$host = 'localhost';
-$usuario = 'root';
-$contrasena = '';
-$base_de_datos = 'glpie';
+include('../../conexion.php');
+
 $tabla = 'nombres_generados';
 $area = $_POST['area'];
 $seccion = $_POST['seccion'];
@@ -11,10 +9,7 @@ $equipo = $_POST['equipo'];
 $tipo_equipo = $_POST['tipo_equipo'];
 $inventario = $_POST['inventario'];
 $codigo_pc = $_POST['codigo'];
-$conexion = mysqli_connect($host, $usuario, $contrasena, $base_de_datos);
-if (!$conexion) {
-    die("Error al conectar a la base de datos: " . mysqli_connect_error());
-}
+
 $consulta = "SELECT * FROM $tabla WHERE codigo_pc = '$codigo_pc'";
 $resultado = mysqli_query($conexion, $consulta);
 if (mysqli_num_rows($resultado) > 0) {

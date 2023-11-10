@@ -1,13 +1,7 @@
 <?php
-$host = 'localhost';
-$usuario = 'root';
-$contrasena = '';
-$base_de_datos = 'glpie';
+include('../../conexion.php');
 $tabla = 'nombres_generados';
-$conexion = mysqli_connect($host, $usuario, $contrasena, $base_de_datos);
-if (!$conexion) {
-    die("Error al conectar a la base de datos: " . mysqli_connect_error());
-}
+
 $query = "SELECT * FROM $tabla";
 $resultado = mysqli_query($conexion, $query);
 $datos = array();

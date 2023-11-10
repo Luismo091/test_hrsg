@@ -3,16 +3,13 @@
 <html lang="en">
 
 <head> 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Primary Meta Tags -->
 <title>Inicio de Sesion</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="title" content="Volt Premium Bootstrap Dashboard - Sign in page">
 <meta name="author" content="Themesberg">
-<meta name="description" content="Volt Pro is a Premium Bootstrap 5 Admin Dashboard featuring over 800 components, 10+ plugins and 20 example pages using Vanilla JS.">
-<meta name="keywords" content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, themesberg, themesberg dashboard, themesberg admin dashboard" />
 <link rel="canonical" href="https://themesberg.com/product/admin-dashboard/volt-premium-bootstrap-5-dashboard">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="120x120" href="../../assets/img/favicon/apple-touch-icon.png">
@@ -49,7 +46,7 @@
                             <div class="text-center text-md-center mb-4 mt-md-0">
                                 <h1 class="mb-0 h3">Ingrese a su cuenta</h1>
                             </div>
-                            <form action="" class="mt-4">
+                            <form class="mt-4" id="loginForm">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
                                     <label for="email">Usuario</label>
@@ -84,8 +81,28 @@
                                     <a href="../transactions.html" class="btn btn-gray-800">Registrarse</a>
                                 </div>
                             </form>
+                            
+                            <script>
+                                $(document).ready(function() {
+                                    $('#loginForm').on('submit', function(e) {
+                                        e.preventDefault();
 
+                                        var formData = $(this).serialize();
 
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: 'php/verificar.php',
+                                            data: formData,
+                                            success: function(response) {
+                                               
+                                            },
+                                            error: function(jqXHR, textStatus, errorThrown) {
+                                                
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
